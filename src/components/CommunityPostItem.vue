@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="q-ma-md">
     <q-img
       v-if="isImage"
       :src="contentSrc"
@@ -16,7 +16,7 @@
       </q-item-section>
 
       <q-item-section>
-        <q-item-label>{{ title }}</q-item-label>
+        <div class="text-h6">{{ title }}</div>
         <q-item-label caption>{{ uploader.nickName }}</q-item-label>
       </q-item-section>
     </q-item>
@@ -111,7 +111,7 @@ export default defineComponent({
       type: Array as PropType<string[]>,
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     // check if the provided media url is an image or not
     const isImage = ref(true);
 
@@ -140,6 +140,7 @@ export default defineComponent({
     };
 
     const onClickTag = (tag: string) => {
+      emit('clickTag', tag);
       console.log('Clicked tag ' + tag);
     };
     return {

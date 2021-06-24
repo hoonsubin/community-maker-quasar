@@ -1,10 +1,13 @@
 <template>
   <q-page padding>
-    <div class="column wrap justify-start items-center content-stretch">
+    <div
+      class="fit column wrap justify-start items-center content-stretch q-pa-md"
+    >
       <q-intersection
         v-for="post in postCount"
+        transition="scale"
         :key="post"
-        class="example-item"
+        class="post-item"
       >
         <community-post-item
           :title="'Random Post #' + post"
@@ -36,8 +39,7 @@ export default defineComponent({
 });
 </script>
 <style lang="sass" scoped>
-.example-item
-  min-height: 300px
-  min-width: 300px
-  margin: 0.5rem
+.post-item
+  min-height: 400px
+  min-width: 50%
 </style>
