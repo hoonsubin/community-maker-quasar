@@ -70,7 +70,6 @@ import { fasAddressCard } from '@quasar/extras/fontawesome-v5';
 export default defineComponent({
   name: 'Navbar',
   setup(_props, { emit }) {
-    const drawerOpen = ref(false);
 
     const searchTerm = ref('');
 
@@ -81,12 +80,6 @@ export default defineComponent({
     watchEffect(() => {
       emit('update:searchTerm', searchTerm.value);
     });
-
-    const toggleLeftDrawer = () => {
-      drawerOpen.value = !drawerOpen.value;
-      emit('toggleDrawer', drawerOpen);
-    };
-
     const emitSearchEvent = () => {
       // prevent empty string from emitting
       if (searchTerm.value) {
@@ -96,11 +89,9 @@ export default defineComponent({
 
     return {
       fasAddressCard,
-      drawerOpen,
       notifications,
       messages,
       searchTerm,
-      toggleLeftDrawer,
       emitSearchEvent,
     };
   },

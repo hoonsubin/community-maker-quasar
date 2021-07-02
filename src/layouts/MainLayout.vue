@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
-import { fasAddressCard } from '@quasar/extras/fontawesome-v5';
 import Navbar from '../components/Navbar.vue';
 import DrawerSideMenu from '../components/DrawerSideMenu.vue';
 
@@ -28,12 +27,6 @@ export default defineComponent({
   },
   setup() {
     const leftDrawerOpen = ref(false);
-
-    const search = ref('');
-
-    // make this dynamically fetch
-    const notifications = ref(5);
-    const messages = ref(3);
 
     const toggleLeftDrawer = () => {
       console.log('toggling drawer menu');
@@ -53,11 +46,7 @@ export default defineComponent({
     };
 
     return {
-      fasAddressCard,
       leftDrawerOpen,
-      notifications,
-      messages,
-      search,
       toggleLeftDrawer,
       onClickSearch,
       onInputSearch,
