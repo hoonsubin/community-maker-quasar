@@ -113,10 +113,6 @@ const currentUserInfo = {
 export default defineComponent({
   name: 'DrawerSideMenu',
   props: {
-    openDrawer: {
-      type: Boolean,
-      require: true,
-    },
     modelValue: Boolean,
   },
   setup(props, { emit }) {
